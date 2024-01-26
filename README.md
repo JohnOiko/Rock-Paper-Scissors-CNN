@@ -19,6 +19,11 @@ The architecture of the **Convolutional Neural Network** is the following:
 5. Five hidden dense layers.
 6. One one-hot-encode output layer.
 
+# Resizing and scaling
+Each image was resized to smaller dimensions so that there are fewer features and the training and predictions of the model take less time to compute. The aspect ratio of the images remains unchanged to preserve all the information of the image samples.
+
+The method of scaling the dataset applied it min max scaling. This is chosen as all samples are RGB images, thus each feature value's range is [0, 255], in which case min max scaling is the best scaling.
+
 # Implementation steps
 The notebook is split into the eleven following sectors:
 1. **Import libraries**: Imports all the necessary libraries. It is noted that the method cv2_imshow is used instead of cv2.imshow as the latter does not work in Google Colab.
@@ -33,14 +38,42 @@ The notebook is split into the eleven following sectors:
 10. **Total profit plot**: Plots the total profit at the end of each round.
 
 # Dataset class sample examples
-The following is a distorted resized sample of the rock class:  
+The following is a distorted resized sample of the rock class (labeled as 0):  
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/756d4b9c-fd6e-4005-bc93-27a2e7601624)
 
-The following is a distorted resized sample of the paper class:  
+The following is a distorted resized sample of the paper class (labeled as 1):  
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/095a2280-cc03-49bf-a713-b0054465dba8)
 
-The following is a distorted resized sample of the scissors class:  
+The following is a distorted resized sample of the scissors class (labeled as 2):  
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/6a97fd77-c62b-4e34-88e8-d4a63b324774)
 
+# Model metrics
+## Support Vector Classifier
+The following are the measured classification metrics of the SVC:
+| Set   | Accuracy | Precision | Recall | F1   |
+| ----- |:--------:| ---------:|-------:|-----:|
+| Train | 0.97     | 0.97      | 0.97   | 0.97 |
+| Test  | 0.93     | 0.93      | 0.93   | 0.93 |
 
+## Random Forest
+The following are the measured classification metrics of the RF:
+| Set   | Accuracy | Precision | Recall | F1   |
+| ----- |:--------:| ---------:|-------:|-----:|
+| Train | 1.00     | 1.00      | 1.00   | 1.00 |
+| Test  | 0.91     | 0.91      | 0.91   | 0.93 |
 
+## Convolutional Neural Network
+The following are the measured classification metrics of the CNN:
+| Set   | Accuracy | Precision | Recall | F1   |
+| ----- |:--------:| ---------:|-------:|-----:|
+| Train | 1.00     | 1.00      | 1.00   | 1.00 |
+| Test  | 0.91     | 0.91      | 0.91   | 0.93 |
+
+# Metrics conclusions
+As evident in the metrics above, the Convolutional Neural Network achieves the absolute best performance on the test set. As such, it is the only model that was used for simulating the game and the results of that simulation are presented and analyzed next. The Support Vector Classifier achieves the next best performance, beating out the Random Forest in the test set. The Random Forest clearly is overfitting the dataset as it gets a measurement of 1.00 in every classification metric of the train set, while each metric of the test set is at least 0.07 lower, signifying overfitting.
+
+Tuning the parameters of the Support Vector Classifier and Random Forest could potential improve their performance, especially potentially reduce the Random Forest's overfitting, however the Convolutional Neural Network is better than both other models for the current problem, that there is no point in tuning the other two models. These two models were chosen alongside the Convolutional Neural Netowork as the Support Vector Classifier is a relatively simple model, while the Random Forest is an ensemble method that often gives good performance.
+
+The Convolutional Neural Network was chosen as it is known that this type of Neural Network performs extremely well on image recognition, which is essentially the category of this problem.
+
+# Game simultation results
