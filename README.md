@@ -24,10 +24,23 @@ The notebook is split into the eleven following sectors:
 1. **Import libraries**: Imports all the necessary libraries. It is noted that the method cv2_imshow is used instead of cv2.imshow as the latter does not work in Google Colab.
 2. **Project variables**: Sets the preprocessing and game simulation variables.
 3. **Useful functions**: Defines two necessary functions. The first takes an image as input and returns an image that has been flipped vertically, horizontally and has had white noise added to it, based on the given parameters. The second simulates the game and returns a list of the profit after each round.
-4. **Dataset reading**: Reads the dataset from the dataset_directory folder and saves both the images and their labels in numpy areas. Each image is resized to the dimensions specified in sector 2.
+4. **Dataset reading**: Reads the dataset from the dataset_directory folder and saves both the images and their labels in numpy areas. Each image is resized to the dimensions specified in sector two while maintaining its aspect ratio.
 5. **Stratified train test split**: Splits the dataset into a train and test set using a 20% stratified train test split.
 6. **Train and test sets distortion**: Randomly flips and adds white noise to both the train and test sets so that they can be used to train the SVC and RF classifiers. Only the distorted samples are kept, the original ones are removed.
 7. **Min max scaling**: Applies min max scaling to both sets using Sklearns's MinMaxScaler. The scaler is first fit to the train set and then tranforms both sets.
 8. **Train different models to predict the move each image depicts**: Fits the three models and measures their performance using Sklearn's classification report.
 9. **Game simulation**: Simulates a game and prints the final profit/score.
 10. **Total profit plot**: Plots the total profit at the end of each round.
+
+# Dataset class sample examples
+The following is a distorted resized sample of the rock class:  
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/756d4b9c-fd6e-4005-bc93-27a2e7601624)
+
+The following is a distorted resized sample of the paper class:  
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/095a2280-cc03-49bf-a713-b0054465dba8)
+
+The following is a distorted resized sample of the scissors class:  
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/6a97fd77-c62b-4e34-88e8-d4a63b324774)
+
+
+
