@@ -76,4 +76,43 @@ Tuning the parameters of the Support Vector Classifier and Random Forest could p
 
 The Convolutional Neural Network was chosen as it is known that this type of Neural Network performs extremely well on image recognition, which is essentially the category of this problem.
 
-# Game simultation results
+# Game simulation results
+## Total profit plot
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/19b982bb-bf38-4752-9ca3-c64dbfd54392)  
+The above plot showcases the total profit of the CNN player during the simulation of 1000 rounds:
+
+## Samples resulting to losses
+The following samples resulting in the agent losing:  
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b35f1ded-106a-4fd9-8007-25d3d8a7a07d)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/3cc5d522-0699-4cba-9e9c-21f356e46c21)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/0647fe7d-38c7-4516-8053-c4ab3a869c95)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/aa3ad871-be55-499c-8983-a03155d94a2c)
+
+The following samples resulting in the agent tying:  
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/d0a7104f-2dca-47ea-baab-cbf9b16ff382)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/1b00572b-618a-400e-a729-7f655d60793b)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/ec34bc28-c307-41a0-b5fa-7e72dea29284)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/0b438f98-0961-4c46-911f-0f2bc5fca58e)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/18cd60af-8b62-45b7-958e-2c41a333c5a4)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/230ffcc9-ed71-4404-b632-0db25a9cee97)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b8868d3e-a85e-4b90-a803-5ee990712942)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/408fea7c-a479-4135-95c2-a3a892d732bf)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/6c63f460-9926-45eb-baed-008a02add605)
+
+# Game simulation conclusions
+As we can see in the previous samples, the Convolutional Neural Network player loses when the random agent plays the move rock and the hand in the image is dressed with dark clothing, or has a strong shadow around the wrist. This happens because the model detects the move as paper, while the actual random agent's move is rock. One way to combat this could be to use the grayscale instead of the RGB color space, however I tester the same models with grayscale and the results were worse.
+
+Additionally, the player ties with the random agent plays the move scissor and the hand's ring and little fingers are not fully closed, resulting in the model detecting the move as paper instead of scissors. I couldn't come up with a way to improve this, as it seems to just be a problem with the dataset.
+
+
+
+
+
+
+
+
+
+
+
+
+
