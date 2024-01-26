@@ -77,18 +77,22 @@ Tuning the parameters of the Support Vector Classifier and Random Forest could p
 The Convolutional Neural Network was chosen as it is known that this type of Neural Network performs extremely well on image recognition, which is essentially the category of this problem.
 
 # Game simulation results
+## Total profit
+At the end of the 1000th round, the total profit was 979 using the Convolutional Neural Network as the player's model.
+
 ## Total profit plot
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/19b982bb-bf38-4752-9ca3-c64dbfd54392)  
-The above plot showcases the total profit of the CNN player during the simulation of 1000 rounds:
+The above plot showcases the total profit of the CNN player during the simulation of 1000 rounds.
 
 ## Samples resulting to losses
-The following samples resulting in the agent losing:  
+The following samples resulting in the agent losing to the random agent:  
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b35f1ded-106a-4fd9-8007-25d3d8a7a07d)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/3cc5d522-0699-4cba-9e9c-21f356e46c21)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/0647fe7d-38c7-4516-8053-c4ab3a869c95)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/aa3ad871-be55-499c-8983-a03155d94a2c)
 
-The following samples resulting in the agent tying:  
+## Samples resulting to ties
+The following samples resulting in the agent tying with the random agent:  
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/d0a7104f-2dca-47ea-baab-cbf9b16ff382)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/1b00572b-618a-400e-a729-7f655d60793b)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/ec34bc28-c307-41a0-b5fa-7e72dea29284)
