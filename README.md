@@ -110,7 +110,7 @@ As we can see in the previous samples, the Convolutional Neural Network player l
 Additionally, the player ties with the random agent in two cases. The first is when the random agent plays the move scissor and the hand's ring and little fingers are not fully closed, resulting in the model detecting the move as paper instead of scissors. The second case is when the random agent plays the move paper, with the palm being in a vertical position instead of a horizontal one, but the Convolutional Neural Network detects it as rock. This presumably happens because the palm is shaped like a fist when in the vertical position and the model cannot detect the fingers. Again, I did not manage to find a way to improve these issues without increasing the training time of the model significantly.
 
 # Secondary dataset CNN metrics
-The following are the measured classification of the Convolutional Neural Network on the image samples of the secondary neural network.
+The following are the measured classification metrics of the Convolutional Neural Network on the image samples of the secondary neural network.
 | Set   | Accuracy | Precision | Recall | F1   |
 | ----- |:--------:| ---------:|-------:|-----:|
 | Train | 0.34     |    0.41   | 0.34   | 0.18 |
