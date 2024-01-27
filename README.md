@@ -5,7 +5,7 @@ A jupyter notebook project where RGB images depicting rock, paper or scissors mo
 - **Second dataset**: The other dataset is another image dataset, named rock-paper-scissors, which contains 500 pictures depicting the rock move, 500 depicting the paper move and 500 depicting the scissors move. The original dataset contains even more samples per class, but in order to reduce its size only the first 500 samples of each class were used. This dataset was also sourced from kaggle and can be found [here](https://www.kaggle.com/datasets/yash811/rockpaperscissors/data). This dataset is used to test the accuracy of the best classifier on images that are similar, but not the same, to the ones it was trained with.
 
 # Models tested
-It is noted that the first two models were tested to compare for performance comparison with the third and most complex model.
+It is noted that the first two models were tested for performance comparison with the third and most complex model.
 - **Suport Vector Machine**: The first mode fitted and tested is a simple Support Vector classifier, whose implementation is provided by the Sklearn library. It's parameters have not been tuned as it is only used for comparison purposes.
 - **Random Forest**: The second model is a Random Forest classifier, again implemented by using the applicable Sklearn class. It's parameters have also not been tuned for the aforementioned reasons.
 - **Convolutional Neural Network**: The third model is a Convolutional Neural Network built using the Keras framework provided by Tensorflow. It makes use of early stopping with a batch size of 256 and up to 100 epochs.
