@@ -3,7 +3,7 @@ A jupyter notebook project where RGB images depicting rock, paper or scissors mo
 
 # Datasets
 - **First dataset**: The main dataset is an image dataset named Rock-Paper-Scissors Images which contains 726 pictures depicting the rock move, 712 depicting the paper move and 750 depicting the scissors move. All images include a had on top of a green background. The dataset was sourced from kaggle and can be found [here](https://www.kaggle.com/datasets/drgfreeman/rockpaperscissors). This dataset is used to train the three classifiers as well as to simulate the rock paper scissors game.
-- **Second dataset**: The other dataset is another image dataset, named rock-paper-scissors, which contains 726 pictures depicting the rock move, 712 depicting the paper move and 750 depicting the scissors move. This dataset was also sourced from kaggle and can be found [here](https://www.kaggle.com/datasets/drgfreeman/rockpaperscissors). This dataset is used to test the accuracy of the best classifier on images that are similar, but not the same, to the ones it was trained with.
+- **Second dataset**: The other dataset is another image dataset, named rock-paper-scissors, which contains 500 pictures depicting the rock move, 500 depicting the paper move and 500 depicting the scissors move. The original dataset contains even more samples per class, but in order to reduce its size only the first 500 samples of each class were used. This dataset was also sourced from kaggle and can be found [here](https://www.kaggle.com/datasets/yash811/rockpaperscissors/data). This dataset is used to test the accuracy of the best classifier on images that are similar, but not the same, to the ones it was trained with.
 
 # Models tested
 It is noted that the first two models were tested to compare for performance comparison with the third and most complex model.
@@ -108,6 +108,14 @@ As we can see in the previous samples, the Convolutional Neural Network player l
 
 Additionally, the player ties with the random agent plays the move scissor and the hand's ring and little fingers are not fully closed, resulting in the model detecting the move as paper instead of scissors. I couldn't come up with a way to improve this, as it seems to just be a problem with the dataset.
 
+# Secondary dataset CNN metrics
+The following are the measured classification of the Convolutional Neural Network on the image samples of the secondary neural network.
+| Set   | Accuracy | Precision | Recall | F1   |
+| ----- |:--------:| ---------:|-------:|-----:|
+| Train | 1.00     | 1.00      | 1.00   | 1.00 |
+
+# Secondary dataset CNN metrics conclusion
+As evident in the above measurements, the Convolutional Neural Network is not nearly as good at identifying the image samples of a different, yet similar dataset. The secondary dataset's images are a lot less uniform than the first dataset's, as they include many different hand positions and background colors. As such, the model struggles to correctly identify them. Addittionally, the scissors class is not identified at all, scoring 0 on every metric measurement, meaning the model cannot defferentiate its samples from the samples of the other classes.
 
 
 
