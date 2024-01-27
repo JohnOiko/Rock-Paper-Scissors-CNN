@@ -6,9 +6,9 @@ A jupyter notebook project where RGB images depicting rock, paper or scissors mo
 
 # Models tested
 It is noted that the first two models were tested for performance comparison with the third and most complex model.
-- **Suport Vector Machine**: The first mode fitted and tested is a simple Support Vector classifier, whose implementation is provided by the Sklearn library. It's parameters have not been tuned as it is only used for comparison purposes.
+- **Support Vector Machine**: The first mode fitted and tested is a simple Support Vector classifier, whose implementation is provided by the Sklearn library. It's parameters have not been tuned as it is only used for comparison purposes.
 - **Random Forest**: The second model is a Random Forest classifier, again implemented by using the applicable Sklearn class. It's parameters have also not been tuned for the aforementioned reasons.
-- **Convolutional Neural Network**: The third model is a Convolutional Neural Network built using the Keras framework provided by Tensorflow. It makes use of early stopping with a batch size of 256 and up to 100 epochs.
+- **Convolutional Neural Network**: The third model is a Convolutional Neural Network built using the Keras framework provided by Tensorflow. It uses a batch size of 256 and is trained for 70 epochs.
 
 The architecture of the **Convolutional Neural Network** is the following:
 1. Two random flip layers, one vertical and one horizontal.
@@ -21,20 +21,21 @@ The architecture of the **Convolutional Neural Network** is the following:
 # Resizing and scaling
 Each image was resized to smaller dimensions so that there are fewer features and the training and predictions of the model take less time to compute. The aspect ratio of the images remains unchanged to preserve all the information of the image samples.
 
-The method of scaling the dataset applied it min max scaling. This is chosen as all samples are RGB images (or grayscale if selected), thus each feature value's range is [0, 255], in which case min max scaling is the best scaling.
+The method of scaling applied to the dataset is min max scaling. This is chosen as all samples are RGB images (or grayscale if selected), thus each feature value's range is [0, 255], in which case min max scaling is the best scaling.
 
 # Implementation steps
 The notebook is split into the eleven following sectors:
-1. **Import libraries**: Imports all the necessary libraries. It is noted that the method cv2_imshow is used instead of cv2.imshow as the latter does not work in Google Colab.
+1. **Import libraries**: Imports all the necessary libraries. It is noted that the method cv2_imshow is used instead of cv2.imshow as the latter does not work in Google Colab. If this notebook is run outside of Google Colab, the import of the cv2_imshow must be deleted and its calls must be replaced by cv2.imshow.
 2. **Project variables**: Sets the preprocessing and game simulation variables.
-3. **Useful functions**: Defines two necessary functions. The first takes an image as input and returns an image that has been flipped vertically, horizontally and has had white noise added to it, based on the given parameters. The second simulates the game and returns a list of the profit after each round.
-4. **Dataset reading**: Reads the dataset from the dataset_directory folder and saves both the images and their labels in numpy areas. Each image is resized to the dimensions specified in sector two while maintaining its aspect ratio.
+3. **Useful functions**: Defines two necessary functions. The first takes an image as input and returns the given image after randomly flipping it vertically, then horizontally and adding white noise to it, based on the given parameters. The second simulates the game and returns a list of the total profit after each round.
+4. **Dataset reading**: Reads the dataset from the dataset_directory folder and saves both the images and their labels in numpy arrays. Each image is resized to the dimensions specified in sector two while maintaining its aspect ratio.
 5. **Stratified train test split**: Splits the dataset into a train and test set using a 20% stratified train test split.
 6. **Train and test sets distortion**: Randomly flips and adds white noise to both the train and test sets so that they can be used to train the SVC and RF classifiers. Only the distorted samples are kept, the original ones are removed.
 7. **Min max scaling**: Applies min max scaling to both sets using Sklearns's MinMaxScaler. The scaler is first fit to the train set and then tranforms both sets.
 8. **Train different models to predict the move each image depicts**: Fits the three models and measures their performance using Sklearn's classification report.
 9. **Game simulation**: Simulates a game and prints the final profit/score.
 10. **Total profit plot**: Plots the total profit at the end of each round.
+11. **Secondary dataset classification report**: Reads the secondary dataset and tests the Convolutional Neural Network's performance on its samples.
 
 # Dataset class sample examples
 The following is a distorted resized sample of the rock class (labeled as 0):  
@@ -112,12 +113,12 @@ Additionally, the player ties with the random agent in two cases. The first is w
 The following are the measured classification of the Convolutional Neural Network on the image samples of the secondary neural network.
 | Set   | Accuracy | Precision | Recall | F1   |
 | ----- |:--------:| ---------:|-------:|-----:|
-| Train | 0.34     | 0.41      | 0.34   | 0.18 |
+| Train | 0.34     |    0.41   | 0.34   | 0.18 |
 
 # Secondary dataset CNN metrics conclusion
 As evident in the above measurements, the Convolutional Neural Network is not nearly as good at identifying the image samples of a different, yet similar dataset. The secondary dataset's images are a lot less uniform than the first dataset's, as they include many different hand positions and background colors. As such, the model struggles to correctly identify them.
 
-Addittionally, the scissors class is not identified at all, scoring 0 on every metric measurement, meaning the model cannot differentiate its samples from the samples of the other classes. This is reflected in the macro f1 score, as it is only 0.18, which is half or lower than the other three metric scores.
+Additionally, the scissors class is not identified at all, scoring 0 on every metric measurement, meaning the model cannot differentiate its samples from the samples of the other classes. This is reflected in the macro f1 score, as it is only 0.18, which is half or lower than the other three metric scores.
 
 
 
