@@ -80,7 +80,7 @@ The Convolutional Neural Network was chosen as it is known that this type of Neu
 
 # Game simulation results
 ## Total profit
-At the end of the 1000th round, the total profit was 979 using the Convolutional Neural Network as the player's model.
+At the end of the 1000th round, the total profit was 978 using the Convolutional Neural Network as the player's model.
 
 ## Total profit plot
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/19b982bb-bf38-4752-9ca3-c64dbfd54392)  
