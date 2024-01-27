@@ -1,4 +1,4 @@
-# Rock-Paper-Scissors-CNN
+![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/bd2dbf81-4fc4-4567-8571-f6024244e071)# Rock-Paper-Scissors-CNN
 A jupyter notebook project where RGB images depicting rock, paper or scissors moves are detected using an SVC, RF and a CNN. An agent which plays a kind of rock paper scissors game using the CNN is built and the game is simulated against a random agent.
 
 # Datasets
@@ -22,7 +22,7 @@ The architecture of the **Convolutional Neural Network** is the following:
 # Resizing and scaling
 Each image was resized to smaller dimensions so that there are fewer features and the training and predictions of the model take less time to compute. The aspect ratio of the images remains unchanged to preserve all the information of the image samples.
 
-The method of scaling the dataset applied it min max scaling. This is chosen as all samples are RGB images, thus each feature value's range is [0, 255], in which case min max scaling is the best scaling.
+The method of scaling the dataset applied it min max scaling. This is chosen as all samples are RGB images (or grayscale if selected), thus each feature value's range is [0, 255], in which case min max scaling is the best scaling.
 
 # Implementation steps
 The notebook is split into the eleven following sectors:
@@ -48,29 +48,31 @@ The following is a distorted resized sample of the scissors class (labeled as 2)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/6a97fd77-c62b-4e34-88e8-d4a63b324774)
 
 # Model metrics
+All the metrics mentioned are the macro variants, as each class is equally important in this problem.
+
 ## Support Vector Classifier
 The following are the measured classification metrics of the SVC:
 | Set   | Accuracy | Precision | Recall | F1   |
 | ----- |:--------:| ---------:|-------:|-----:|
-| Train | 0.97     | 0.97      | 0.97   | 0.97 |
-| Test  | 0.93     | 0.93      | 0.93   | 0.93 |
+| Train | 0.97     | 0.98      | 0.97   | 0.97 |
+| Test  | 0.92     | 0.93      | 0.92   | 0.92 |
 
 ## Random Forest
 The following are the measured classification metrics of the RF:
 | Set   | Accuracy | Precision | Recall | F1   |
 | ----- |:--------:| ---------:|-------:|-----:|
 | Train | 1.00     | 1.00      | 1.00   | 1.00 |
-| Test  | 0.91     | 0.91      | 0.91   | 0.93 |
+| Test  | 0.91     | 0.91      | 0.91   | 0.91 |
 
 ## Convolutional Neural Network
 The following are the measured classification metrics of the CNN:
 | Set   | Accuracy | Precision | Recall | F1   |
 | ----- |:--------:| ---------:|-------:|-----:|
 | Train | 1.00     | 1.00      | 1.00   | 1.00 |
-| Test  | 0.91     | 0.91      | 0.91   | 0.93 |
+| Test  | 0.98     | 0.98      | 0.98   | 0.98 |
 
 # Metrics conclusions
-As evident in the metrics above, the Convolutional Neural Network achieves the absolute best performance on the test set. As such, it is the only model that was used for simulating the game and the results of that simulation are presented and analyzed next. The Support Vector Classifier achieves the next best performance, beating out the Random Forest in the test set. The Random Forest clearly is overfitting the dataset as it gets a measurement of 1.00 in every classification metric of the train set, while each metric of the test set is at least 0.07 lower, signifying overfitting.
+As evident in the metrics above, the Convolutional Neural Network achieves the absolute best performance on the test set. As such, it is the only model that was used for simulating the game and the results of that simulation are presented and analyzed next. The Support Vector Classifier achieves the next best performance, beating out the Random Forest in the test set. The Random Forest clearly is overfitting the dataset as it gets a measurement of 1.00 in every classification metric of the train set, while each metric of the test set is 0.09 lower, signifying the existence of at least some overfitting.
 
 Tuning the parameters of the Support Vector Classifier and Random Forest could potential improve their performance, especially potentially reduce the Random Forest's overfitting, however the Convolutional Neural Network is better than both other models for the current problem, that there is no point in tuning the other two models. These two models were chosen alongside the Convolutional Neural Netowork as the Support Vector Classifier is a relatively simple model, while the Random Forest is an ensemble method that often gives good performance.
 
@@ -86,36 +88,37 @@ The above plot showcases the total profit of the CNN player during the simulatio
 
 ## Samples resulting to losses
 The following samples resulting in the agent losing to the random agent:  
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b35f1ded-106a-4fd9-8007-25d3d8a7a07d)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/3cc5d522-0699-4cba-9e9c-21f356e46c21)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/0647fe7d-38c7-4516-8053-c4ab3a869c95)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/aa3ad871-be55-499c-8983-a03155d94a2c)
+![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b8438caf-17eb-4565-8a11-b7a125c91b3b)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/46b59220-b0cb-4c85-ba5c-ebcd65c5006b)
+![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b671802a-887c-4fed-b1d0-f7b88c0a9cd4)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/0e8162fe-9d73-44e6-a128-46c2e1c12496)
+![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/225732b6-d222-47ed-af16-de26ba47e7ac)
 
 ## Samples resulting to ties
 The following samples resulting in the agent tying with the random agent:  
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/d0a7104f-2dca-47ea-baab-cbf9b16ff382)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/1b00572b-618a-400e-a729-7f655d60793b)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/ec34bc28-c307-41a0-b5fa-7e72dea29284)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/0b438f98-0961-4c46-911f-0f2bc5fca58e)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/18cd60af-8b62-45b7-958e-2c41a333c5a4)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/230ffcc9-ed71-4404-b632-0db25a9cee97)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b8868d3e-a85e-4b90-a803-5ee990712942)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/408fea7c-a479-4135-95c2-a3a892d732bf)
-![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/6c63f460-9926-45eb-baed-008a02add605)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/80c8155d-b3f4-4fb2-8e7b-9f8260fb5df9)
+![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/3424a7e6-353d-45e7-92bc-289c6269e1b5)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/2c24abe5-3a58-4d52-adb7-43cda8ff0511)
+![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/9df3edb8-2c1d-4a0b-9ded-889b6319763f)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/815a5c39-bfd6-450a-b481-a15073b7ac28)
+![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/13bfba21-1a38-4247-a243-5f0babbcae83)
+![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/7eb30eaf-f1be-4eab-9337-2a514296278f)
 
 # Game simulation conclusions
-As we can see in the previous samples, the Convolutional Neural Network player loses when the random agent plays the move rock and the hand in the image is dressed with dark clothing, or has a strong shadow around the wrist. This happens because the model detects the move as paper, while the actual random agent's move is rock. One way to combat this could be to use the grayscale instead of the RGB color space, however I tester the same models with grayscale and the results were worse.
+As we can see in the previous samples, the Convolutional Neural Network player loses when the random agent plays the move rock and the fist of the hand is not fully closed. This happens because the model detects the move as paper, while the actual random agent's move is rock. I did not manage to find a way to improve this without increasing the training time of the model significantly. Similarly, when the hand in the image sample is dressed with dark clothing, or has a strong shadow around the wrist, the same mistake is made. One way to combat this could be to use the grayscale instead of the RGB color space, however I tester the same models with grayscale and the results were worse.
 
-Additionally, the player ties with the random agent plays the move scissor and the hand's ring and little fingers are not fully closed, resulting in the model detecting the move as paper instead of scissors. I couldn't come up with a way to improve this, as it seems to just be a problem with the dataset.
+Additionally, the player ties with the random agent in two cases. The first is when the random agent plays the move scissor and the hand's ring and little fingers are not fully closed, resulting in the model detecting the move as paper instead of scissors. The second case is when the random agent plays the move paper, with the palm being in a vertical position instead of a horizontal one, but the Convolutional Neural Network detects it as rock. This presumably happens because the palm is shaped like a fist when in the vertical position and the model cannot detect the fingers. Again, I did not manage to find a way to improve these issues without increasing the training time of the model significantly.
 
 # Secondary dataset CNN metrics
 The following are the measured classification of the Convolutional Neural Network on the image samples of the secondary neural network.
 | Set   | Accuracy | Precision | Recall | F1   |
 | ----- |:--------:| ---------:|-------:|-----:|
-| Train | 1.00     | 1.00      | 1.00   | 1.00 |
+| Train | 0.34     | 0.41      | 0.34   | 0.18 |
 
 # Secondary dataset CNN metrics conclusion
-As evident in the above measurements, the Convolutional Neural Network is not nearly as good at identifying the image samples of a different, yet similar dataset. The secondary dataset's images are a lot less uniform than the first dataset's, as they include many different hand positions and background colors. As such, the model struggles to correctly identify them. Addittionally, the scissors class is not identified at all, scoring 0 on every metric measurement, meaning the model cannot defferentiate its samples from the samples of the other classes.
+As evident in the above measurements, the Convolutional Neural Network is not nearly as good at identifying the image samples of a different, yet similar dataset. The secondary dataset's images are a lot less uniform than the first dataset's, as they include many different hand positions and background colors. As such, the model struggles to correctly identify them.
+
+Addittionally, the scissors class is not identified at all, scoring 0 on every metric measurement, meaning the model cannot differentiate its samples from the samples of the other classes. This is reflected in the macro f1 score, as it is only 0.18, which is half or lower than the other three metric scores.
 
 
 
