@@ -87,7 +87,7 @@ At the end of the 1000th round, the total profit was 978 using the Convolutional
 The above plot showcases the total profit of the CNN player during the simulation of 1000 rounds.
 
 ## Samples resulting to losses
-The following samples resulting in the agent losing to the random agent:  
+The following samples resulted in the agent losing to the random agent:  
 ![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b8438caf-17eb-4565-8a11-b7a125c91b3b)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/46b59220-b0cb-4c85-ba5c-ebcd65c5006b)
 ![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/b671802a-887c-4fed-b1d0-f7b88c0a9cd4)
@@ -95,7 +95,7 @@ The following samples resulting in the agent losing to the random agent:
 ![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/225732b6-d222-47ed-af16-de26ba47e7ac)
 
 ## Samples resulting to ties
-The following samples resulting in the agent tying with the random agent:  
+The following samples resulted in the agent tying with the random agent:  
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/80c8155d-b3f4-4fb2-8e7b-9f8260fb5df9)
 ![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/3424a7e6-353d-45e7-92bc-289c6269e1b5)
 ![Untitled](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/2c24abe5-3a58-4d52-adb7-43cda8ff0511)
