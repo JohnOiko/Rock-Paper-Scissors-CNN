@@ -1,4 +1,3 @@
-![Untitled-1](https://github.com/JohnOiko/Rock-Paper-Scissors-CNN/assets/72659858/bd2dbf81-4fc4-4567-8571-f6024244e071)# Rock-Paper-Scissors-CNN
 A jupyter notebook project where RGB images depicting rock, paper or scissors moves are detected using an SVC, RF and a CNN. An agent which plays a kind of rock paper scissors game using the CNN is built and the game is simulated against a random agent.
 
 # Datasets
